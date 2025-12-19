@@ -49,6 +49,8 @@ if [ "$EUID" -eq 0 ]; then
   exit 1
 fi
 
+source build.env
+
 # Check if sudo is available and ask password if needed
 sudo ls > /dev/null
 
@@ -135,8 +137,9 @@ else
   git reset HEAD > /dev/null
 fi
 
+echo -e "${INFO} Detecting host's IP address on interface ${INTERFACE}"
 
-HOST_IP=$(ifconfig wlp0s20f3 | grep -Po "inet (?:[0-9]{1,3}\.){3}[0-9]{1,3}" | sed 's/inet //')
+HOST_IP=$(ifconfig "${INTERFACE}" | grep -Po "inet (?:[0-9]{1,3}\.){3}[0-9]{1,3}" | sed 's/inet //')
 echo -e "${INFO} host's IP: ${HOST_IP}"
 
 echo -e "${INFO} Run: ${ITALIC}sudo docker build -t smarthome . $cache --build-arg HOST_IP=\"${HOST_IP}\"${NC}--build-arg USE_LOCAL=\"${use_local}\""

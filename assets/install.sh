@@ -58,4 +58,4 @@ fi
 
 echo "Adding host's IP to ALLOWED_HOSTS in settings.py"
 # Host's IP is needed here to allow access to the server from other devices in LAN
-sed -i -E "s/(ALLOWED_HOSTS = \[)/\1'${HOST_IP}', 'localhost'/g" smartHomeSite/settings.py
+sed -i -E "s/(ALLOWED_HOSTS = \[)/\1'${HOST_IP}', 'localhost', /g" smartHomeSite/settings.py

@@ -74,6 +74,7 @@ The Docker image is based on ubuntu and includes all dependencies required to ru
 
 - Docker
 - Repository cloned (see [Installation](#installation))
+- Create a build.env file in the project root directory (use `build.env.example` as a template)
 
 ### Build the Docker image
 
