@@ -110,6 +110,10 @@ To generate fixtures you can use command:
 
    ```
    ./manage.py dumpdata [app_name[.model_name]]
+
+   ## Example:
+   ./manage.py dumpdata auth.user
+   ./manage.py dumpdata devices
    ```
 
 ## Usage

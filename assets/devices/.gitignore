@@ -1,1 +1,2 @@
 *.json
+!example_device.json
